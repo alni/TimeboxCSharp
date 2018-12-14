@@ -11,7 +11,7 @@ namespace Knom.TimeBox
 {
     public class TimeBoxDevice
     {
-        private BluetoothClient _client;
+        protected BluetoothClient _client;
 
         public bool IsConnected => _client != null && _client.Connected;
 
@@ -160,7 +160,7 @@ namespace Knom.TimeBox
                 return imageBytes.ToArray();
             }
         }
-        private static byte[] BuildMessage(byte[] payload)
+        protected static byte[] BuildMessage(byte[] payload)
         {
             // build the checksum
             var checksum = Checksum(payload);
